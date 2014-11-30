@@ -1,10 +1,39 @@
 <?php
-    session_start(); 
-    $errors = array(
-        1=>'Username or Password is incorrect!',
-        2=>'Please login before adding todo'
-    );
+session_start();
+
+
+
+    if(isset($_POST['username'], $_POST['name'],$_POST['password'])){
+
+        require 'helpers/connection.php';
+
+
+
+        $query = dbConnect()->prepare("INSERT INTO users (username,name, password) VALUES (:username, :name,:password)");
+
+        $query->bindParam(':username', $_POST['username']);
+        
+        $query->bindParam(':name', $_POST['name']);
+
+        $query->bindParam(':password', $_POST['password']);
+
+
+
+        if($query->execute()){
+
+            header("Location: index.php");
+
+        } else{
+
+            echo 'ERROR';
+
+        }
+
+    }
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +57,6 @@
   <body>
     
     <div class="container">
-             
         
 	<div class="row clearfix center-block">
 		<div class="col-md-2 column">
@@ -43,19 +71,18 @@
 		<div class="col-md-2 column">
 		</div>
 	</div>        
-                   
 
         
-        <form class="form-signin" role="form" action="todo.php" method="POST">
-          <h2 class="form-signin-heading text-center text-muted">Sign In</h2><br>
-          
+        <form class="form-signin" role="form" action="register.php" method="POST">
+          <h2 class="form-signin-heading text-center text-muted">Enter Details</h2><br>
         <label for="inputUsername" class="sr-only">Username</label>
         <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus>
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="text" id="inputName" class="form-control" placeholder="Name" name="name" required>        
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-        <?php if(isset($_GET['err'])){?><p class="text-danger text-center"><?=$errors[$_GET['err']]?></p><?php }?>
-        <button class="btn btn-lg btn-primary btn-block btn-danger" type="submit">Sign in</button><br>
-        <a href="register.php">Not Registered?</a>
+        <button class="btn btn-lg btn-primary btn-block btn-danger" type="submit">Register</button><br>
+        <a href="index.php">Already Registered?</a>
       </form>
 
     </div> 
