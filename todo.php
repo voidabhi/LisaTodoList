@@ -83,6 +83,7 @@ session_start();
             $query->bindParam(':title', $_POST['todo']);
             $query->bindParam(':username', $_POST['username']);
             $query->execute();
+            $_SESSION['msg'] = 'Todo successfully added!';
         }
         // Removing Todo
         else {
@@ -90,7 +91,7 @@ session_start();
             $query->bindParam(':username', $_POST['username']);
             $query->bindParam(':id', $_POST['id']);
             $query->execute();
-
+            $_SESSION['msg'] = 'Todo successfully removed!';
         }
         $_SESSION['todos'] = fetch_todos($username);
     }
@@ -99,6 +100,7 @@ session_start();
 $username = isset($_SESSION['username'])?$_SESSION['username']:'guest';
 $name = isset($_SESSION['name'])?$_SESSION['name']:'guest';
 $todos = isset($_SESSION['todos'])?$_SESSION['todos']:array();
+$msg = isset($_SESSION['msg'])?$_SESSION['msg']:null;
 ?>
 
 
@@ -142,6 +144,7 @@ $todos = isset($_SESSION['todos'])?$_SESSION['todos']:array();
 		<div class="col-md-2 column">
 		</div>
 		<div class="col-md-8 column">
+                    <?php if(isset($msg)){?><p class="text-danger text-center"><?=$msg?></p><?php }?>
                             <div class="panel panel-danger">
                               <!-- Default panel contents -->
                               <div class="panel-heading ">Your Todos</div>
