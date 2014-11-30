@@ -2,7 +2,8 @@
     session_start(); 
     $errors = array(
         1=>'Username or Password is incorrect!',
-        2=>'Please login before adding todo'
+        2=>'Please login before adding todo',
+        3=>'Username already exists!'
     );
 ?>
 
@@ -12,7 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>List Todo List</title>
+    <title>Lisa Todo List</title>
 
     <!-- Bootstrap -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">

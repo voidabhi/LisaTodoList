@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+    $errors = array(
+        1=>'Username or Password is incorrect!',
+        2=>'Please login before adding todo',
+        3=>'Username already exists!'
+    );
 
 
     if(isset($_POST['username'], $_POST['name'],$_POST['password'])){
@@ -25,7 +30,7 @@ session_start();
 
         } else{
 
-            echo 'ERROR';
+            header("Location: register.php?err=3");
 
         }
 
@@ -41,7 +46,7 @@ session_start();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>List Todo List</title>
+    <title>Lisa Todo List</title>
 
     <!-- Bootstrap -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
@@ -81,6 +86,7 @@ session_start();
         <input type="text" id="inputName" class="form-control" placeholder="Name" name="name" required>        
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        <?php if(isset($_GET['err'])){?><p class="text-danger text-center"><?=$errors[$_GET['err']]?></p><?php }?>
         <button class="btn btn-lg btn-primary btn-block btn-danger" type="submit">Register</button><br>
         <a href="index.php">Already Registered?</a>
       </form>
