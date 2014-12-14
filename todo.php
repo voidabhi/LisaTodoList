@@ -19,7 +19,7 @@ session_start();
                 'name'=> $row['name']
             );
         }  else {
-            null;
+            return null;
             
         }        
     }

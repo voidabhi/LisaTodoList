@@ -12,7 +12,5 @@
             echo 'ERROR', $e->getMessage();
         }
     }
-	
-	
 ?>
 
