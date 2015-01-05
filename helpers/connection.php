@@ -1,5 +1,6 @@
 
 <?php
+    // update $host and $dbname in mysql string before using this function
     function dbConnect(){
         try{
             $mysql = "mysql:host=$host;dbname=$dbname";
