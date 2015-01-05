@@ -2,7 +2,7 @@
 <?php
     function dbConnect(){
         try{
-            $mysql = "mysql:host=127.7.34.130;dbname=lisatodolist";
+            $mysql = "mysql:host=$host;dbname=$dbname";
             $username = 'adminc9AFVDJ';
             $password = 'L87Mum1A__qf';
             $conn = new pdo($mysql, $username, $password);
