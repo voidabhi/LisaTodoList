@@ -8,6 +8,7 @@ session_start();
     );
 
 
+	// checking if the form is filled properly
     if(isset($_POST['username'], $_POST['name'],$_POST['password'])){
 
         require 'helpers/connection.php';
