@@ -6,6 +6,7 @@ session_start();
         header("location:index.php?err=2");
     }
     
+    // helper functions to fetch login credentials from db
     function fetch_login_credentials($username,$password)
     {
         $query = dbConnect()->prepare("SELECT username,name, password FROM users WHERE username=:username AND password=:password");
