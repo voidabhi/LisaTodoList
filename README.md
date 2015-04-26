@@ -1,7 +1,7 @@
 Lisa Todo List
 ============
 
-Awesome Todo List App built with `php` ,`mysql` and `good intentions.`
+Awesome Todo List App built with `php` ,`mysql` and `good intentions`
 
 Developed By
 ============
