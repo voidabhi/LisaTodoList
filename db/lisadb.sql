@@ -59,5 +59,4 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`username`, `name`, `password`) VALUES
-('test', 'TestUser', 'test'),
-('voidabhi', 'Abhijeet Mohan', 'antihcking');
+('test', 'TestUser', 'test');
