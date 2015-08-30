@@ -2,3 +2,4 @@
 .openshift
 nbproject
 .idea
+*.log
