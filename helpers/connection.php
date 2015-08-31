@@ -3,6 +3,7 @@
     // update $host and $dbname in mysql string before using this function
     function dbConnect(){
         try{
+            // db details
             $mysql = "mysql:host=$host;dbname=$dbname";
             $username = 'adminc9AFVDJ';
             $password = 'L87Mum1A__qf';
