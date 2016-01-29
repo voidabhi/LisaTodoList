@@ -1,10 +1,8 @@
-Lisa Todo List
-============
+## Lisa Todo List
 
 Awesome Todo List App built with `php` ,`mysql`, `jquery` and good intentions.
 
-Developed By
-============
+### Developed By
 
 `Abhijeet Mohan` - `void.aby@gmail.com`
 
